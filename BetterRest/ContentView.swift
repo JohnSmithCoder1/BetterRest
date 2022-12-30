@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
-    
+        
     static var defaultWakeTime: Date {
         var components = DateComponents()
         components.hour = 7
@@ -49,7 +49,6 @@ struct ContentView: View {
                     
                     Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
                 }
-                
             }
             .navigationTitle("BetterRest")
             .toolbar {
@@ -77,7 +76,6 @@ struct ContentView: View {
             let sleepTime = wakeUp - prediction.actualSleep
             alertTitle = "Your ideal bedtime is..."
             alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
-            
         } catch {
             alertTitle = "Error"
             alertMessage = "Sorry, there was a problem calculating your bedtime."
